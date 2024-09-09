@@ -50,7 +50,7 @@ At the end of this project, you will be able to:
 
 ## Mission Director
 
-> This project is supervised by the ALX Software Engineering Program, guided by Guillaume.
+> This project is supervised by the ALX Software Engineering Program.
 
 ## Developer
 
