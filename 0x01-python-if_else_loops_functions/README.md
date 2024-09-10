@@ -1,5 +1,6 @@
 # 0x01. Python - if/else, loops, functions
 
+
 ## Description
 This project covers the fundamentals of Python control flow using `if/else` statements, loops, and functions. It includes tasks designed to practice Python syntax and logic building, such as handling random numbers, string manipulation, and working with loops and conditionals. The project also focuses on adhering to Pythonic coding principles, using `pycodestyle` for linting.
 
