@@ -7,10 +7,6 @@ listint_t *insert_node(listint_t **head, int number);
  * @head: Pointer to the pointer pointing to the head of the list.
  * @number: The integer value to be inserted into the list.
  *
- * This function inserts a new node containing the given number into the
- * appropriate position within a list that is already
- * sorted in ascending order.
- *
  * Return: On success, returns a pointer to the newly created node.
  *         On failure (e.g., memory allocation error), returns NULL.
  */
