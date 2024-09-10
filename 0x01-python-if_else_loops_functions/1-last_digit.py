@@ -1,14 +1,16 @@
 #!/usr/bin/python3
 import random
 
-# Assign a random integer within the range of -10000 to 10000 to the variable `number`
+# Assign a random integer within the range of -10000 to 10000
 number = random.randint(-10000, 10000)
 
 # Compute the last digit of `number`, adjusting for negative values
 if number < 0:
-    last_digit = number % -10  # Use -10 to handle negative last digit calculation
+    last_digit = number % -10  
+    # Use -10 to handle negative last digit calculation
 else:
-    last_digit = number % 10   # Use 10 for non-negative numbers
+    last_digit = number % 10  
+    # Use 10 for non-negative numbers
 
 # Output the base message showing the number and its last digit
 print(f"Last digit of {number} is {last_digit}", end=" ")
