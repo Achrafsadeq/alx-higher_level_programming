@@ -10,22 +10,22 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # Extract and convert arguments
-    num1 = int(sys.argv[1])
-    op = sys.argv[2]
-    num2 = int(sys.argv[3])
+    first_operand = int(sys.argv[1])
+    operator = sys.argv[2]
+    second_operand = int(sys.argv[3])
 
     # Calculate result based on operator
-    if op == '+':
-        result = add(num1, num2)
-    elif op == '-':
-        result = sub(num1, num2)
-    elif op == '*':
-        result = mul(num1, num2)
-    elif op == '/':
-        result = div(num1, num2)
+    if operator == '+':
+        result = add(first_operand, second_operand)
+    elif operator == '-':
+        result = sub(first_operand, second_operand)
+    elif operator == '*':
+        result = mul(first_operand, second_operand)
+    elif operator == '/':
+        result = div(first_operand, second_operand)
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
 
     # Output the calculation
-    print(f"{num1} {op} {num2} = {result}")
+    print(f"{first_operand} {operator} {second_operand} = {result}")
