@@ -1,35 +1,31 @@
 #!/usr/bin/python3
-import sys
-from calculator_1 import add, sub, mul, div
-
-def print_usage_and_exit():
-    print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-    sys.exit(1)
-
-def print_unknown_operator_and_exit():
-    print("Unknown operator. Available operators: +, -, * and /")
-    sys.exit(1)
 
 if __name__ == "__main__":
+    from calculator_1 import add, subtract, multiply, divide
+    import sys
+
+    # Verify the script has exactly three arguments plus the script name
     if len(sys.argv) != 4:
-        print_usage_and_exit()
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+        sys.exit(1)
 
-    try:
-        a = int(sys.argv[1])
-        operator = sys.argv[2]
-        b = int(sys.argv[3])
-    except ValueError:
-        print_usage_and_exit()
+    # Convert command-line arguments to integers and operator
+    num1 = int(sys.argv[1])
+    op = sys.argv[2]
+    num2 = int(sys.argv[3])
 
-    if operator == '+':
-        result = add(a, b)
-    elif operator == '-':
-        result = sub(a, b)
-    elif operator == '*':
-        result = mul(a, b)
-    elif operator == '/':
-        result = div(a, b)
+    # Determine the operation to perform based on the operator
+    if op == '+':
+        outcome = add(num1, num2)
+    elif op == '-':
+        outcome = subtract(num1, num2)
+    elif op == '*':
+        outcome = multiply(num1, num2)
+    elif op == '/':
+        outcome = divide(num1, num2)
     else:
-        print_unknown_operator_and_exit()
+        print("Unknown operator. Available operators: +, -, * and /")
+        sys.exit(1)
 
-    print(f"{a} {operator} {b} = {result}")
+    # Output the result in the required format
+    print(f"{num1} {op} {num2} = {outcome}")
