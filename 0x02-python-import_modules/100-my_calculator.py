@@ -1,31 +1,31 @@
 #!/usr/bin/python3
 
 if __name__ == "__main__":
-    from calculator_1 import add, subtract, multiply, divide
+    from calculator_1 import add, sub, mul, div
     import sys
 
-    # Verify the script has exactly three arguments plus the script name
+    # Verify that the correct number of command-line arguments is provided
     if len(sys.argv) != 4:
-        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+        print("Usage: ./100-my_calculator.py <num1> <operator> <num2>")
         sys.exit(1)
 
-    # Convert command-line arguments to integers and operator
+    # Extract the command-line arguments
     num1 = int(sys.argv[1])
     op = sys.argv[2]
     num2 = int(sys.argv[3])
 
-    # Determine the operation to perform based on the operator
+    # Determine and perform the requested arithmetic operation
     if op == '+':
-        outcome = add(num1, num2)
+        result = add(num1, num2)
     elif op == '-':
-        outcome = subtract(num1, num2)
+        result = sub(num1, num2)
     elif op == '*':
-        outcome = multiply(num1, num2)
+        result = mul(num1, num2)
     elif op == '/':
-        outcome = divide(num1, num2)
+        result = div(num1, num2)
     else:
-        print("Unknown operator. Available operators: +, -, * and /")
+        print("Invalid operator. Supported operators: +, -, *, /")
         sys.exit(1)
 
-    # Output the result in the required format
-    print(f"{num1} {op} {num2} = {outcome}")
+    # Output the computed result in the desired format
+    print(f"{num1} {op} {num2} = {result}")
