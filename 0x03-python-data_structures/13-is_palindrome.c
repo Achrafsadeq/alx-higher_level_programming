@@ -1,73 +1,83 @@
 #include "lists.h"
 
 /**
- * reverse_listint - Reverses the order of nodes in a linked list.
- * @head: Address of the pointer to the head node of the list.
+ * reverse_listint - Reverses the sequence of nodes in a linked list.
+ * @head: Address of the pointer pointing to the first node in the list.
  *
- * Return: The pointer to the new head of the reversed list.
+ * This function reverses the linked list by rearranging the pointers 
+ * of each node. After the function completes, the head pointer will 
+ * point to what was originally the last node in the list.
+ *
+ * Return: The pointer to the new head of the reversed linked list.
  */
 void reverse_listint(listint_t **head)
 {
-	listint_t *previous = NULL;
-	listint_t *current_node = *head;
-	listint_t *next_node = NULL;
+	listint_t *prev = NULL;
+	listint_t *current = *head;
+	listint_t *next = NULL;
 
-	while (current_node)
+	while (current)
 	{
-		next_node = current_node->next;
-		current_node->next = previous;
-		previous = current_node;
-		current_node = next_node;
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
 	}
 
-	*head = previous;
+	*head = prev;
 }
 
 /**
- * is_palindrome - Determines if a linked list is a palindrome.
- * @head: Pointer to the pointer of the head node in the list.
+ * is_palindrome - Determines if the linked list is a palindrome.
+ * @head: Pointer to the head pointer of the linked list.
+ *
+ * This function assesses whether the linked list forms a palindrome by 
+ * comparing the sequence of values from the start and end. It uses a 
+ * two-pointer technique to identify the midpoint, reverses the second 
+ * half of the list, and checks if the first half matches the reversed 
+ * second half.
  *
  * Return: 1 if the list is a palindrome, otherwise 0.
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *slow_pointer = *head, *fast_pointer = *head,
-		  *temp_pointer = *head, *duplicate = NULL;
+	listint_t *slow = *head, *fast = *head, *temp = *head, *dup = NULL;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
 	while (1)
 	{
-		fast_pointer = fast_pointer->next->next;
-		if (!fast_pointer)
+		fast = fast->next->next;
+		if (!fast)
 		{
-			duplicate = slow_pointer->next;
+			dup = slow->next;
 			break;
 		}
-		if (!fast_pointer->next)
+		if (!fast->next)
 		{
-			duplicate = slow_pointer->next->next;
+			dup = slow->next->next;
 			break;
 		}
-		slow_pointer = slow_pointer->next;
+		slow = slow->next;
 	}
 
-	reverse_listint(&duplicate);
+	reverse_listint(&dup);
 
-	while (duplicate && temp_pointer)
+	while (dup && temp)
 	{
-		if (temp_pointer->n == duplicate->n)
+		if (temp->n == dup->n)
 		{
-			duplicate = duplicate->next;
-			temp_pointer = temp_pointer->next;
+			dup = dup->next;
+			temp = temp->next;
 		}
 		else
 			return (0);
 	}
 
-	if (!duplicate)
+	if (!dup)
 		return (1);
 
 	return (0);
 }
+
