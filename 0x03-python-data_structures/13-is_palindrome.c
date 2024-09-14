@@ -1,68 +1,81 @@
 #include "lists.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
- * reverse_list - Reverses a singly linked list.
- * @head: Pointer to the head of the list.
- * Return: Pointer to the new head of the reversed list.
+ * reverse_listint - Reverses the order of nodes in a linked list.
+ * @head: Address of the pointer to the head node of the list.
+ *
+ * This function iterates through the linked list, reversing the direction
+ * of each node's pointer so that the list is reversed. The new head of the
+ * list is pointed to by the original tail of the list.
+ *
+ * Return: The pointer to the new head of the reversed list.
  */
-listint_t *reverse_list(listint_t *head)
+void reverse_listint(listint_t **head)
 {
-	listint_t *prev = NULL;
-	listint_t *current = head;
-	listint_t *next = NULL;
+	listint_t *previous = NULL;
+	listint_t *current_node = *head;
+	listint_t *next_node = NULL;
 
-	while (current != NULL)
+	while (current_node)
 	{
-		next = current->next;
-		current->next = prev;
-		prev = current;
-		current = next;
+		next_node = current_node->next;
+		current_node->next = previous;
+		previous = current_node;
+		current_node = next_node;
 	}
 
-	return (prev);
+	*head = previous;
 }
 
 /**
- * is_palindrome - Checks if a singly linked list is a palindrome.
- * @head: Double pointer to the head of the list.
- * Return: 1 if the list is a palindrome, 0 otherwise.
+ * is_palindrome - Determines if a linked list is a palindrome.
+ * @head: Pointer to the pointer of the head node in the list.
+ *
+ * This function checks if the sequence of values in the linked list reads
+ * the same forwards and backwards. It uses a two-pointer technique to 
+ * find the middle of the list, reverses the second half, and compares it
+ * with the first half to verify if it is a palindrome.
+ *
+ * Return: 1 if the list is a palindrome, otherwise 0.
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *slow = *head;
-	listint_t *fast = *head;
-	listint_t *second_half;
-	listint_t *first_half;
-	listint_t *second_half_reversed;
-	int result = 1;
+	listint_t *slow_pointer = *head, *fast_pointer = *head, *temp_pointer = *head, *duplicate = NULL;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
-	while (fast != NULL && fast->next != NULL)
+	while (1)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
-	}
-
-	second_half = slow;
-	second_half_reversed = reverse_list(second_half);
-
-	first_half = *head;
-	while (second_half_reversed != NULL)
-	{
-		if (first_half->n != second_half_reversed->n)
+		fast_pointer = fast_pointer->next->next;
+		if (!fast_pointer)
 		{
-			result = 0;
+			duplicate = slow_pointer->next;
 			break;
 		}
-		first_half = first_half->next;
-		second_half_reversed = second_half_reversed->next;
+		if (!fast_pointer->next)
+		{
+			duplicate = slow_pointer->next->next;
+			break;
+		}
+		slow_pointer = slow_pointer->next;
 	}
 
-	reverse_list(second_half);
+	reverse_listint(&duplicate);
 
-	return (result);
+	while (duplicate && temp_pointer)
+	{
+		if (temp_pointer->n == duplicate->n)
+		{
+			duplicate = duplicate->next;
+			temp_pointer = temp_pointer->next;
+		}
+		else
+			return (0);
+	}
+
+	if (!duplicate)
+		return (1);
+
+	return (0);
 }
