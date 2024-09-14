@@ -1,5 +1,6 @@
 #include "lists.h"
-
+void reverse_listint(listint_t **head);
+int is_palindrome(listint_t **head);
 /**
  * reverse_listint - Reverses the sequence of nodes in a linked list.
  * @head: Address of the pointer pointing to the first node in the list.
