@@ -1,7 +1,4 @@
 #include "lists.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
 
 /**
  * reverse_listint - Reverses the order of nodes in a linked list.
