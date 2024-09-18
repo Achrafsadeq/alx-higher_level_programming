@@ -34,7 +34,6 @@ void print_python_bytes(PyObject *p)
 			printf(" %02x", 256 + string[index]);
 	printf("\n");
 }
-
 /**
  * print_python_list - Prints list information
  *
