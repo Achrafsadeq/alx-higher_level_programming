@@ -4,7 +4,6 @@ def list_division(my_list_1, my_list_2, list_length):
     
     for i in range(list_length):
         try:
-            # Attempt to access elements from both lists
             if i >= len(my_list_1):
                 print("out of range")
                 result.append(0)
@@ -14,7 +13,6 @@ def list_division(my_list_1, my_list_2, list_length):
                 result.append(0)
                 continue
             
-            # Perform the division
             result.append(my_list_1[i] / my_list_2[i])
         
         except ZeroDivisionError:
@@ -26,7 +24,7 @@ def list_division(my_list_1, my_list_2, list_length):
             result.append(0)
         
         finally:
-            # This block runs no matter what, but here it's not necessary
+
             pass
     
     return result
