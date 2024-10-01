@@ -1,13 +1,12 @@
 #!/usr/bin/python3
-"""
-Module 3-square
-Defines a class Square with size validation and a method to calculate.
-"""
+
+"""Defines a class Square with size validation and a method."""
+
+
 
 class Square:
-    """
-    A class that defines a square with a private size attribute.
-    """
+    """A class that defines a square with a private size attribute."""
+
     def __init__(self, size=0):
         """
         Initialize the square with size validation.
