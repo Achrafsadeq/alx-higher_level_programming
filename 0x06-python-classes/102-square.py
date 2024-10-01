@@ -3,6 +3,7 @@
 """Module for the Square class that supports comparison operations."""
 
 
+
 class Square:
     """Defines a square with size and comparison capabilities."""
 
