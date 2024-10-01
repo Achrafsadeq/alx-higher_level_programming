@@ -1,24 +1,24 @@
 #!/usr/bin/python3
 
-"""Define a class Rectangle."""
+"""Define a class Square."""
 
 
-class Rectangle:
-    """Represent a rectangle."""
+class Square:
+    """Represents a square with a defined size."""
 
     def __init__(self, size=0, position=(0, 0)):
-        """Initialize a new rectangle.
+        """Initialize a new square.
 
         Args:
-            size (int): The size of the new rectangle.
-            position (int, int): The position of the new rectangle.
+            size (int): The size of the new square.
+            position (int, int): The position of the new square.
         """
         self.size = size
         self.position = position
 
     @property
     def size(self):
-        """Get/set the current size of the rectangle."""
+        """Get/set the current size of the square."""
         return (self.__size)
 
     @size.setter
@@ -31,7 +31,7 @@ class Rectangle:
 
     @property
     def position(self):
-        """Get/set the current position of the rectangle."""
+        """Get/set the current position of the square."""
         return (self.__position)
 
     @position.setter
@@ -44,11 +44,11 @@ class Rectangle:
         self.__position = value
 
     def area(self):
-        """Return the current area of the rectangle."""
+        """Return the current area of the square."""
         return (self.__size * self.__size)
 
     def my_print(self):
-        """Print the rectangle with the # character."""
+        """Print the square with the # character."""
         if self.__size == 0:
             print("")
             return
