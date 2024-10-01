@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
-"""Defines a class Square with size validation."""
+"""Define a class Square."""
 
 
 class Square:
-    """A class that defines a square with a private size attribute and validation."""
+    """Represent a square."""
 
     def __init__(self, size=0):
         """Initialize a new Square.
