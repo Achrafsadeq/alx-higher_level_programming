@@ -1,49 +1,27 @@
 #!/usr/bin/python3
-
-"""
-Defines a Rectangle class.
-"""
-
+"""Defines a Rectangle class."""
 
 
 class Rectangle:
-
-    """
-    Represents a rectangle defined by width and height.
-    """
+    """Represent a rectangle."""
 
     def __init__(self, width=0, height=0):
-        """
-        Initializes the rectangle with optional width and height.
+        """Initialize a new Rectangle.
 
         Args:
-            width (int): Width of the rectangle.
-            height (int): Height of the rectangle.
+            width (int): The width of the new rectangle.
+            height (int): The height of the new rectangle.
         """
         self.width = width
         self.height = height
 
     @property
     def width(self):
-
-        """
-        Retrieves the width of the rectangle.
-        """
+        """Get/set the width of the Rectangle."""
         return self.__width
 
     @width.setter
     def width(self, value):
-
-        """
-        Sets the width of the rectangle.
-
-        Args:
-            value (int): The width value to set.
-
-        Raises:
-            TypeError: If the width is not an integer.
-            ValueError: If the width is less than 0.
-        """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -52,25 +30,11 @@ class Rectangle:
 
     @property
     def height(self):
-
-        """
-        Retrieves the height of the rectangle.
-        """
+        """Get/set the height of the Rectangle."""
         return self.__height
 
     @height.setter
     def height(self, value):
-
-        """
-        Sets the height of the rectangle.
-
-        Args:
-            value (int): The height value to set.
-
-        Raises:
-            TypeError: If the height is not an integer.
-            ValueError: If the height is less than 0.
-        """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
@@ -78,48 +42,29 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-
-        """
-        Returns the area of the rectangle.
-
-        Returns:
-            int: The area of the rectangle (width * height).
-        """
+        """Return the area of the Rectangle."""
         return self.__width * self.__height
 
     def perimeter(self):
-
-        """
-        Returns the perimeter of the rectangle.
-
-        Returns:
-            int: The perimeter of the rectangle, or 0 if either
-                 width or height is 0.
-        """
+        """Return the perimeter of the Rectangle."""
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
+        """Return the printable representation of the Rectangle.
 
-        """
-        Returns a string representation of the rectangle using the '#' character.
-
-        Returns:
-            str: A string that visually represents the rectangle using '#',
-                 or an empty string if either width or height is 0.
+        Represents the rectangle with the # character.
         """
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join(["#" * self.__width for _ in range(self.__height)])
+        rect = []
+        for i in range(self.__height):
+            [rect.append('#') for j in range(self.__width)]
+            if i != self.__height - 1:
+                rect.append("\n")
+        return "".join(rect)
 
     def __repr__(self):
-
-        """
-        Returns a string representation of the rectangle to be able to recreate
-        a new instance using eval().
-
-        Returns:
-            str: A string representation of the rectangle.
-        """
+        """Return the string representation of the Rectangle."""
         return f"Rectangle({self.__width}, {self.__height})"
