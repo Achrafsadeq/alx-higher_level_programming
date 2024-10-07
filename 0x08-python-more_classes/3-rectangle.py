@@ -9,6 +9,7 @@ class Rectangle:
     Represents a rectangle defined by width and height.
     """
 
+
     def __init__(self, width=0, height=0):
         """
         Initializes the rectangle with optional width and height.
