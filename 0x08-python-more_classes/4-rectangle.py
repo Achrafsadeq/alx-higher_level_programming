@@ -1,12 +1,13 @@
 #!/usr/bin/python3
+
 """
 Defines a Rectangle class.
 """
 
 
 
-
 class Rectangle:
+
     """
     Represents a rectangle defined by width and height.
     """
@@ -24,6 +25,7 @@ class Rectangle:
 
     @property
     def width(self):
+
         """
         Retrieves the width of the rectangle.
         """
@@ -31,6 +33,7 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
+
         """
         Sets the width of the rectangle.
 
@@ -49,6 +52,7 @@ class Rectangle:
 
     @property
     def height(self):
+
         """
         Retrieves the height of the rectangle.
         """
@@ -56,6 +60,7 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
+
         """
         Sets the height of the rectangle.
 
@@ -73,6 +78,7 @@ class Rectangle:
         self.__height = value
 
     def area(self):
+
         """
         Returns the area of the rectangle.
 
@@ -82,6 +88,7 @@ class Rectangle:
         return self.__width * self.__height
 
     def perimeter(self):
+
         """
         Returns the perimeter of the rectangle.
 
@@ -94,6 +101,7 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
+
         """
         Returns a string representation of the rectangle using the '#' character.
 
@@ -106,6 +114,7 @@ class Rectangle:
         return "\n".join(["#" * self.__width for _ in range(self.__height)])
 
     def __repr__(self):
+
         """
         Returns a string representation of the rectangle to be able to recreate
         a new instance using eval().
