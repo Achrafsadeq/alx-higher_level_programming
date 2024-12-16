@@ -89,8 +89,6 @@ sudo mysql
 cat script.sql | mysql -uroot -p database_name
 ```
 
-Enjoy exploring advanced SQL querying techniques!
-
 ## Mission Director
 This project is supervised by the ALX Software Engineering Program.
 
