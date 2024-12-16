@@ -9,7 +9,7 @@ if (args.length <= 1) {
 } else {
   // Remove duplicates and sort in descending order
   const uniqueSorted = [...new Set(args)].sort((a, b) => b - a);
-  
+
   // Print the second element (second biggest)
   console.log(uniqueSorted.length > 1 ? uniqueSorted[1] : 0);
 }
