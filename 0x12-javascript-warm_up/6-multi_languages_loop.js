@@ -1,5 +1,13 @@
 #!/usr/bin/node
-const myArray = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
-for (let i = 0; i < myArray.length; i++) {
-    console.log(myArray[i]);
+
+// Array of strings containing the lines to be printed
+const lines = [
+  'C is fun',
+  'Python is cool',
+  'JavaScript is amazing'
+];
+
+// Loop through the array and print each element
+for (let i = 0; i < lines.length; i++) {
+  console.log(lines[i]);
 }
