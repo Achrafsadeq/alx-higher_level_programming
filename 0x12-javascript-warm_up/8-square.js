@@ -1,6 +1,5 @@
 #!/usr/bin/node
 
-// Get the first argument and convert it to an integer
 const args = process.argv;
 const size = parseInt(args[2], 10);
 
