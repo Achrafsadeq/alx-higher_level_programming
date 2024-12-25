@@ -73,7 +73,6 @@ $ python3 -c "import sqlalchemy; print(sqlalchemy.__version__)"
 | **15. City relationship**         | Improve state/city models with relationships                           | `relationship_city.py, relationship_state.py, 100-relationship_states_cities.py` |
 | **16. List relationship**         | List States and corresponding Cities                                   | `101-relationship_states_cities_list.py` |
 | **17. From city**                | List all City objects with linked State names                           | `102-relationship_cities_states_list.py` |
-
  
 ## General Guidelines
 
@@ -82,7 +81,6 @@ $ python3 -c "import sqlalchemy; print(sqlalchemy.__version__)"
 - Test your scripts with various input values, including edge cases.
 - Use proper error handling for database operations.
 - Always close database connections after use.
-
 
 ## Mission Director
 This project is supervised by the ALX Software Engineering Program.
