@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 Defines the City class linked to the State class
 """
