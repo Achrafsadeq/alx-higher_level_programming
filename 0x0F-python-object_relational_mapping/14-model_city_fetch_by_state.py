@@ -12,7 +12,10 @@ import sys
 if __name__ == "__main__":
     # Connect to the MySQL server
     username, password, database = sys.argv[1:4]
-    engine = create_engine(f"mysql+mysqldb://{username}:{password}@localhost:3306/{database}", pool_pre_ping=True)
+    engine = create_engine(
+        f"mysql+mysqldb://{username}:{password}@localhost:3306/{database}",
+        pool_pre_ping=True
+    )
 
     # Create a session
     Session = sessionmaker(bind=engine)
