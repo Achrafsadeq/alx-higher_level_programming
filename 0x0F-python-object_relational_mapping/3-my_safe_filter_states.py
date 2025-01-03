@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Script to safely display states matching name argument (SQL injection safe)."""
+"""Script to safely display states matching name argument."""
 import MySQLdb
 import sys
 
