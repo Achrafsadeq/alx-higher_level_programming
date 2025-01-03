@@ -5,6 +5,7 @@ import sys
 
 
 if __name__ == "__main__":
+    # Connect to the database
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -12,13 +13,20 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         db=sys.argv[3]
     )
+
+    # Create a cursor object
     cursor = db.cursor()
-    query = "SELECT * FROM states
-    WHERE name LIKE BINARY '{}' ORDER BY id ASC".format(
-        sys.argv[4])
+
+    # Construct the SQL query to enforce case sensitivity
+    query = ("SELECT * FROM states WHERE BINARY name = '{}' "
+             "ORDER BY id ASC".format(sys.argv[4]))
     cursor.execute(query)
+
+    # Fetch and display results
     states = cursor.fetchall()
     for state in states:
         print(state)
+
+    # Close the cursor and the connection
     cursor.close()
     db.close()
