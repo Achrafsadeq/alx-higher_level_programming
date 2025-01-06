@@ -1,31 +1,24 @@
 #!/usr/bin/python3
-"""
-Lists all City objects from the database hbtn_0e_14_usa
-"""
-
+"""Script to list all City objects from database"""
+import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import State
+from model_state import Base, State
 from model_city import City
-import sys
+
 
 if __name__ == "__main__":
-    # Connect to the MySQL server
-    username, password, database = sys.argv[1:4]
-    engine = create_engine(
-        f"mysql+mysqldb://{username}:{password}@localhost:3306/{database}",
-        pool_pre_ping=True
-    )
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                          .format(sys.argv[1], sys.argv[2], sys.argv[3]))
 
-    # Create a session
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Query all City objects and join with State
-    results = session.query(City, State).join(State).order_by(City.id).all()
+    cities = session.query(State.name, City.id, City.name)\
+        .join(City, State.id == City.state_id)\
+        .order_by(City.id)
 
-    # Display results in the specified format
-    for city, state in results:
-        print(f"{state.name}: ({city.id}) {city.name}")
+    for state_name, city_id, city_name in cities:
+        print(f"{state_name}: ({city_id}) {city_name}")
 
     session.close()
