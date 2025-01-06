@@ -1,33 +1,29 @@
 #!/usr/bin/python3
 """
 List all cities and their corresponding states from the database.
-This script connects to a MySQL database, queries the `cities` and `states` tables,
+This script connects to a MySQL database, queries
+the `cities` and `states` tables,
 and prints the city ID, city name, and associated state name.
 """
-from sys import argv
-from relationship_state import Base, State
-from relationship_city import City
+
+import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from relationship_state import Base, State
+from relationship_city import City
 
 if __name__ == "__main__":
-    # Check if the correct number of command-line arguments is provided
-    if len(argv) != 4:
-        print("Usage: {} <username> <password> <database>".format(argv[0]))
-        sys.exit(1)
+    # Establish a database connection using provided credentials.
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+        sys.argv[1], sys.argv[2], sys.argv[3]))
 
-    engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost/{}'
-        .format(argv[1], argv[2], argv[3]), pool_pre_ping=True)
-
-    Base.metadata.create_all(engine)
-
+    # Set up a session factory bound to the engine.
     Session = sessionmaker(bind=engine)
+
+    # Initialize a session for performing database operations.
     session = Session()
 
-    for city, state in session.query(City, State).\
-                        join(State, State.id == City.state_id).\
-                        order_by(City.id):
-        print("{}: {} -> {}".format(city.id, city.name, state.name))
-
-    session.close()
+    # Retrieve all City objects ordered by their IDs.
+    for city in session.query(City).order_by(City.id):
+        # Display city ID, name, and the name of the associated state.
+        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
