@@ -12,13 +12,9 @@ and the UTF-8 decoded content.
 import urllib.request
 
 if __name__ == "__main__":
-    # The URL to fetch
     url = urllib.url.Request("https://alx-intranet.hbtn.io/status")
-
     with urllib.request.urlopen(url) as response:
         content = response.read()
-
-        # Print the body response in the required format
         print("Body response:")
         print("\t- type: {}".format(type(content)))
         print("\t- content: {}".format(content))
