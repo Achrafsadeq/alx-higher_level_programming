@@ -1,6 +1,5 @@
 # 0x11. Python - Network #1
 
-
 ## Background Context
 
 This project builds on the foundational knowledge of Python scripting for network-related tasks. It focuses on using Python's `urllib` and `requests` libraries to interact with web servers, handle HTTP requests, and process responses. By completing this project, you will gain a deeper understanding of how to automate web interactions and handle various HTTP scenarios.
