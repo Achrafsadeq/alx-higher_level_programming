@@ -9,7 +9,8 @@ request(apiUrl, (error, response, body) => {
     console.log(error);
   } else {
     const films = JSON.parse(body).results;
-    const count = films.filter(film => 
+    const count = films.filter(film =>
+
       film.characters.some(url => url.includes(`/people/${characterId}/`))
     ).length;
     console.log(count);
