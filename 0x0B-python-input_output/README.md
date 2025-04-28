@@ -70,7 +70,7 @@ This project focuses on file handling, JSON serialization/deserialization, and w
 This project is supervised by the ALX Software Engineering Program.
 
 ## Developer
-**Codename**: Achraf Sadaeq
+**Codename**: Achraf Sadeq
 
 ## Acknowledgments
 Holberton School, in collaboration with the ALX Software Engineering Program, developed this project for educational purposes.
